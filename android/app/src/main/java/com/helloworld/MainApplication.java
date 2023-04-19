@@ -62,6 +62,10 @@ public class MainApplication extends Application implements ReactApplication {
     // If you opted-in for the New Architecture, we enable the TurboModule system
     ReactFeatureFlags.useTurboModules = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
     SoLoader.init(this, /* native exopackage */ false);
+    
+    // Normally we only send key up events in ReactAndroidHWInputDeviceHelper
+    // Change enableKeyDownEvents to true to send both key down and key up events
+    ReactFeatureFlags.enableKeyDownEvents = true;
 
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
     ApplicationLifecycleDispatcher.onApplicationCreate(this);
